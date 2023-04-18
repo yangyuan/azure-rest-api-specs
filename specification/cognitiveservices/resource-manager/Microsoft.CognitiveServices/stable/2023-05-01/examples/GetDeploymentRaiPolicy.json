@@ -1,0 +1,57 @@
+{
+  "parameters": {
+    "api-version": "2023-05-01",
+    "subscriptionId": "subscriptionId",
+    "resourceGroupName": "resourceGroupName",
+    "accountName": "accountName",
+    "deploymentName": "deploymentName"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "raiPolicyName",
+        "displayName": "my policy",
+        "properties": {
+          "basePolicyName": "112",
+          "contentFilters": [
+            {
+              "name": "hate",
+              "blockingContentLevel": "low",
+              "annotatingContentLevel": "medium"
+            },
+            {
+              "name": "sexual",
+              "blockingContentLevel": "low"
+            },
+            {
+              "name": "violence",
+              "enabled": false
+            },
+            {
+              "name": "DefaultHateSpeechBlockList",
+              "enabled": false
+            }
+          ],
+          "customLists": [
+            {
+              "name": "copyrightedwords",
+              "patterns": [
+                "microsoft",
+                "xbox"
+              ],
+              "action": "annotate"
+            },
+            {
+              "name": "politicalNames",
+              "patterns": [
+                ".*joe.*",
+                ".*mary.*"
+              ],
+              "action": "block"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
